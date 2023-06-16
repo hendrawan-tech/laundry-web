@@ -123,7 +123,7 @@ class ApiController extends Controller
     {
         $orders = [];
         if ($request->user_id) {
-            $orders = Order::where('user_id', $request->user)->orderBy('created_at', 'DESC')->get();
+            $orders = Order::where('user_id', $request->user_id)->orderBy('created_at', 'DESC')->get();
         } else {
             $orders = Order::orderBy('created_at', 'DESC')->get();
         }
