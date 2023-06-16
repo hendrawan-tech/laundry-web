@@ -123,9 +123,9 @@ class ApiController extends Controller
     {
         $orders = [];
         if ($request->user_id) {
-            $orders = Order::where('user_id', $request->user_id)->orderBy('created_at', 'DESC')->get();
+            $orders = Order::where('user_id', $request->user_id)->orderBy('created_at', 'DESC')->with('user', 'category')->get();
         } else {
-            $orders = Order::orderBy('created_at', 'DESC')->get();
+            $orders = Order::orderBy('created_at', 'DESC')->with('user', 'category')->get();
         }
         if ($orders) {
             return ResponseFormatter::success($orders);
