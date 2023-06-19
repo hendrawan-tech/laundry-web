@@ -21,7 +21,7 @@ class UserResource extends Resource
 {
     protected static ?string $model = User::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-collection';
+    protected static ?string $navigationIcon = 'heroicon-o-user-group';
 
     public static function form(Form $form): Form
     {
@@ -30,7 +30,6 @@ class UserResource extends Resource
                 TextInput::make('name')->label('Nama Lengkap')->rules(['required']),
                 TextInput::make('email')->label('Email')->rules(['required']),
                 TextInput::make('phone_number')->label('No Telepon')->rules(['required']),
-                Hidden::make('password')->default(Hash::make('password')),
             ])->columns(1);
     }
 
